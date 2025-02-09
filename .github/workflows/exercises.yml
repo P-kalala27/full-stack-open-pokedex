@@ -1,0 +1,25 @@
+name: Exercises
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  all_exercises_on_partb:
+    runs-on: centos-9.0
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version:20
+
+      - name: install dependencies
+        run: npm install
+
+      - name: run lint
+        run: npm run eslint
