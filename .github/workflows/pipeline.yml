@@ -1,0 +1,35 @@
+#nom du pipeline
+name: Pipeline de déploiement
+
+#déclencher le pipeline lorsque quelqu'un pousse sur la branche main
+on:
+
+  push:
+    branches:
+      - main
+
+#définir le job pour le pipeline qui doit être exécuté sur ubuntu-20.04
+jobs:
+  simple_deployment_pipeline:
+    runs-on: ubuntu-20.04
+
+    #définir les étapes du pipeline
+    steps:
+      #vérifier le code
+      - name: Checkout code
+      - uses: actions/checkout@v3
+
+      #vérifier la version de node  
+      - name: Checkout the package.json
+      -uses: actions/setup-node@v4
+      with:
+
+        node-version: 20
+
+      #installer les dépendances
+      - name: Install dependencies
+      run: npm install
+      - name: check style
+      run : npm run eslint
+      
+
