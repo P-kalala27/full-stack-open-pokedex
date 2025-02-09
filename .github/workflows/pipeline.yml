@@ -3,7 +3,6 @@ name: Pipeline de déploiement
 
 #déclencher le pipeline lorsque quelqu'un pousse sur la branche main
 on:
-
   push:
     branches:
       - main
@@ -17,18 +16,18 @@ jobs:
     steps:
       #vérifier le code
       - name: Checkout code
-       uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       #vérifier la version de node  
       - name: Checkout the package.json
-       uses: actions/setup-node@v4
-      with:
-        node-version: 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
       #installer les dépendances
       - name: Install dependencies
-      run: npm install
+        run: npm install
       - name: check style
-      run : npm run eslint
+        run: npm run eslint
       
 
