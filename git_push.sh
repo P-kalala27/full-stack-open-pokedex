@@ -19,7 +19,12 @@ echo "Files modified:"
 git status -s
 
 #Demander le message du commit
-commit_message=${1:-"Mise à jour rapide"}
+if [ -n "$1" ]; then
+    commit_message="$1"
+else
+    read -p "📝 Message du commit : " commit_message
+fi
+
 
 
 git add -u 
