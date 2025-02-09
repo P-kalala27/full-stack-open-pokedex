@@ -7,7 +7,7 @@ on:
 
 jobs:
   all_exercises_on_partb:
-    runs-on: centos-9.0
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Checkout code
@@ -16,7 +16,7 @@ jobs:
       - name: set up node
         uses: actions/setup-node@v4
         with:
-          node-version:20
+          node-version: '20'
 
       - name: install dependencies
         run: npm install
