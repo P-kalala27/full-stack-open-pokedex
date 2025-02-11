@@ -13,7 +13,7 @@ module.exports = {
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "commonjs"
+    "sourceType": "module"
   },
   "plugins": [
     "react", "jest"
